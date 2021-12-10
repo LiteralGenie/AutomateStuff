@@ -8,7 +8,7 @@ class FixedScheduler(Scheduler, RecentChecker):
     Insert a single data entry if the most recent timestamp is greater than or equal to a given interval.
     """
 
-    def check_and_insertnsert(self) -> float | None:
+    def check_and_insert(self) -> float | None:
         now = time.time()
         newest = self.get_newest_timestamp()
         dist = now - newest

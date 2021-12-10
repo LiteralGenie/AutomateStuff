@@ -11,10 +11,13 @@ class FixedScheduler(Scheduler, RecentChecker):
 
     def check_and_insert(self) -> list[float]:
         now = time.time()
-        intervals = (now + i*self.interval for i in itertools.count(start=1))
+        newest = self.get_newest_timestamp()
+
+        intervals = (newest + i*self.interval for i in itertools.count(start=1))
         timestamps = itertools.takewhile(lambda ts: ts <= now, intervals)
 
         for ts in timestamps:
+            print(ts)
             self.write(timestamp=ts, callback_result=self.before_write(ts))
 
         return timestamps

@@ -14,6 +14,6 @@ class Scheduler(abc.ABC):
         """Add timestamp to data"""
         pass
 
-    def before_write(timestamp: float):
+    def before_write(self, timestamp: float):
         """Return value is supplied to self.write()"""
         pass

@@ -3,7 +3,7 @@ from .scheduler import Scheduler
 import time
 
 
-class FixedScheduler(Scheduler, RecentChecker):
+class MinimumScheduler(Scheduler, RecentChecker):
     """
     Insert a single data entry if the most recent timestamp is greater than or equal to a given interval.
     """

@@ -18,7 +18,7 @@ class SqlMixin:
         self.flush = flush
     
     def write(self, timestamp: float, callback_result):
-        self.db.add(callback_result)
+        self.db.merge(callback_result)
 
         if self.flush:
             self.db.flush()
